@@ -1,0 +1,12 @@
+<h2 class="w-25 mx-auto mt-5">Add an ingredient (dose)</h2>
+<div class="w-25 mx-auto">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+
+
+
