@@ -17,11 +17,9 @@ class CocktailsController < ApplicationController
     redirect_to cocktails_path
   end
 
-
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
-
 end

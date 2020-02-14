@@ -6,9 +6,16 @@
     <p><%= link_to 'Add a new recipe', new_cocktail_path %></p>
   </div>
   <% @cocktails.each do |cocktail| %>
-    <div class="card-category m-2">
-      <p><%= link_to cocktail.name, cocktail_path(cocktail), class: "text-decoration-none"%></p>
+      <% if cocktail.photo.attached? %>
+        <% img_url = 'cl_image_path cocktail.photo.key' %>
+      <% else %>
+        <% img_url = 'https://images.unsplash.com/photo-1485265449635-ca623a55e95c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80' %>
+      <% end %>
+    <%= link_to cocktail_path(cocktail), class:"text-decoration-none" do %>
+      <div class="card-category m-2" style="background-image: url('<%= img_url %>')">
+      <%= cocktail.name %>
     </div>
+      <% end %>
   <% end %>
 </div>
 
